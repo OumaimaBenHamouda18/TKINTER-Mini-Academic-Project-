@@ -1,0 +1,172 @@
+from tkinter import *
+import Exercice7TP4,s1,s2,s3,s4,Exercice9TP4,Exercice10TP4
+import Exercice1TP5,Exercice2TP5,Exercice3TP5,Exercice4TP5,Exercice5TP5
+import Exercice1TP6,Exercice2TP6,Exercice3TP6,Exercice4TP6,Exercice5TP6,Exercice6TP6
+import webbrowser as wb
+ 
+#appel des fichier python
+
+#appel des fichier PDF
+def openFile(path):
+    wb.open_new(path)
+    
+def menu():
+   
+
+#creat a window
+    window=Tk()
+#window's name
+    window.title("Mini projet:Oumaima Ben Hamouda")
+# window's geometry
+    window.geometry("852x480+250+90")
+#window's background color
+    window.configure(background='black')
+#window's icon
+    window.iconbitmap('icons\\python_icon.ico')
+    def quit():
+        window.destroy()
+    
+    label1=Label(window,
+             font="Times 38 bold ",
+             fg="#FF00FF",
+             text="Mini Projet",
+             bg="black")
+    label2=Label(window,
+             font="Times 25 bold italic",
+             fg="#32C1F2",
+             text="Realisé par :",
+             bg="black")
+
+    label3=Label(window,
+             font="Times 25 bold italic",
+             fg="white",
+             text="Oumaima Ben hamouda",
+             bg="black")
+    label4=Label(window,
+             font="Times 25 bold italic",
+             fg="#32C1F2",
+             text="Licence/TD :",
+             bg="black")
+    label5=Label(window,
+             font="Times 25 bold italic",
+             fg="white",
+             text="TD2_L1 Informatique",
+             bg="black")
+    label6=Label(window,
+             font="Times 25 bold italic",
+             fg="#32C1F2",
+             text="Prof :",
+             bg="black")
+    label7=Label(window,
+             font="Times 25 bold italic",
+             fg="white",
+             text="Mr Kais Ben Salah",
+             bg="black")
+    label8=Label(window,
+             font="Times 25 bold italic",
+             fg="#32C1F2",
+             text="&&",
+             bg="black")
+    label9=Label(window,
+             font="Times 25 bold italic",
+             fg="white",
+             text="Mm Emel Malek ",
+             bg="black")
+    label1.place(x=300,y=40)
+    label2.place(x=60,y=130)
+    label3.place(x=280,y=130)
+    label4.place(x=60,y=200)
+    label5.place(x=290,y=200)
+    label6.place(x=60,y=270)
+    label7.place(x=170,y=270)
+    label8.place(x=450,y=270)
+    label9.place(x=520,y=270)
+
+#Menu
+    menubar = Menu(window)
+    window.config(menu=menubar)
+    menuTP4 = Menu(menubar,tearoff=0)
+    menubar.add_cascade(label="TP4", menu=menuTP4)
+    menuTP5 = Menu(menubar,tearoff=0)
+    menubar.add_cascade(label= "TP5", menu=menuTP5) 
+    menuTP6 = Menu(menubar,tearoff=0)
+    menubar.add_cascade(label= "TP6", menu=menuTP6) 
+    menuPDF = Menu(menubar,tearoff=0)
+    menubar.add_cascade(label= "PDF", menu=menuPDF)
+    menuRessouces = Menu(menubar,tearoff=0)
+    menubar.add_cascade(label= "Ressources",menu=menuRessouces)
+#PDF options
+    menuPDF.add_command(label="Enoncé TP4",command=lambda:openFile("PDF\\TP4.pdf"))
+    menuPDF.add_command(label="Enoncé TP5",command=lambda:openFile("PDF\\TP5.pdf"))
+    menuPDF.add_command(label="Enoncé TP6",command=lambda:openFile("PDF\\TP6.pdf"))
+#TP4 options
+    menuTP4.add_command(label="Exercice 7",command=Exercice7TP4.ex1)
+    Exercice8 =Menu(menuTP4, tearoff=0)
+    menuTP4.add_cascade(label="Exercice 8",menu=Exercice8)
+    Exercice8.add_command(label="S1",command=s1.ex1)
+    Exercice8.add_command(label="S2",command=s2.ex1)
+    Exercice8.add_command(label="S3",command=s3.ex1)
+    Exercice8.add_command(label="S4",command=s4.ex1)
+    menuTP4.add_command(label="Exercice 9",command=Exercice9TP4.ex1)
+    menuTP4.add_command(label="Exercice 10",command=Exercice10TP4.ex1)
+#TP5options
+    menuTP5.add_command(label="Exercice 1",command=Exercice1TP5.ex1)
+    menuTP5.add_command(label="Exercice 2",command=Exercice2TP5.ex1)
+    menuTP5.add_command(label="Exercice 3",command=Exercice3TP5.ex1)
+    menuTP5.add_command(label="Exercice 4",command=Exercice4TP5.ex1)
+    menuTP5.add_command(label="Exercice 5",command=Exercice5TP5.ex1)
+#TP6options
+    menuTP6.add_command(label="Exercice 1",command=Exercice1TP6.ex1)
+    menuTP6.add_command(label="Exercice 2",command=Exercice2TP6.ex1)
+    menuTP6.add_command(label="Exercice 3",command=Exercice3TP6.ex1)
+    menuTP6.add_command(label="Exercice 4",command=Exercice4TP6.ex1)
+    menuTP6.add_command(label="Exercice 5",command=Exercice5TP6.ex1)
+    menuTP6.add_command(label="Exercice 6",command=Exercice6TP6.ex1)
+
+#Ressource options
+    menuRessouces.add_command(label="Menu_principal",command=lambda:openFile("Ressource\\menu_principal.txt"))
+    TP4=Menu(menuRessouces,tearoff=0)
+    menuRessouces.add_cascade(label="TP 4",menu=TP4)
+    TP4.add_command(label="Exercice7",command=lambda:openFile('Ressource\\TP4\\Exercice7.txt'))
+    Exercice8=Menu(TP4,tearoff=0)
+    TP4.add_cascade(label="Exercice8",menu=Exercice8)
+    Exercice8.add_command(label="S1",command=lambda:openFile('Ressource\\TP4\\Exercice8\\S1.txt'))
+    Exercice8.add_command(label="S2",command=lambda:openFile('Ressource\\TP4\\Exercice8\\S2.txt'))
+    Exercice8.add_command(label="S3",command=lambda:openFile('Ressource\\TP4\\Exercice8\\S3.txt'))
+    Exercice8.add_command(label="S4",command=lambda:openFile('Ressource\\TP4\\Exercice8\\S4.txt'))
+    TP4.add_command(label="Exercice9",command=lambda:openFile('Ressource\\TP4\\Exercice9.txt'))
+    TP4.add_command(label="Exercice10",command=lambda:openFile('Ressource\\TP4\\Exercice10.txt'))
+    TP5=Menu(menuRessouces,tearoff=0)
+    menuRessouces.add_cascade(label="TP 5",menu=TP5)
+    TP5.add_command(label="Exercice 1",command=lambda:openFile('Ressource\\TP5\\Exercice1.txt'))
+    TP5.add_command(label="Exercice 2",command=lambda:openFile('Ressource\\TP5\\Exercice2.txt'))
+    TP5.add_command(label="Exercice 3",command=lambda:openFile('Ressource\\TP5\\Exercice3.txt'))
+    TP5.add_command(label="Exercice 4",command=lambda:openFile('Ressource\\TP5\\Exercice4.txt'))
+    TP5.add_command(label="Exercice 5",command=lambda:openFile('Ressource\\TP5\\Exercice5.txt'))
+    TP6=Menu(menuRessouces,tearoff=0)
+    menuRessouces.add_cascade(label="TP 6",menu=TP6)
+    TP6.add_command(label="Exercice 1",command=lambda:openFile('Ressource\\TP6\\Exercice1.txt'))
+    TP6.add_command(label="Exercice 3",command=lambda:openFile('Ressource\\TP6\\Exercice3.txt'))
+    TP6.add_command(label="Exercice 4",command=lambda:openFile('Ressource\\TP6\\Exercice4.txt'))
+
+
+
+
+
+
+    img2 = PhotoImage(file="icons\\exit_icon.png")
+    exit_label=Label(image=img2,bg="black")
+    Exit=Button(window,
+                 bd=0,
+                 activebackground="black",
+                 bg="black",
+                 highlightthickness = 0,  
+                 image=img2,
+                 command=quit,
+                 borderwidth=0 )
+    Exit.place(x=780,y=400)
+
+    window.mainloop()
+ 
+
+
